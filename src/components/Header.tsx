@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MapPin, Menu, Scissors, ShoppingBag, Truck, X } from "lucide-react";
 import { useState } from "react";
+import { useCart } from "@/components/CartProvider";
 import SearchBar from "@/components/SearchBar";
 
 const navItems = [
@@ -15,6 +16,8 @@ const navItems = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { itemCount, openCart } = useCart();
+  const cartCountLabel = itemCount > 99 ? "99+" : String(itemCount);
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink-900/10 bg-cream-50/94 backdrop-blur-xl">
@@ -66,10 +69,11 @@ export default function Header() {
           type="button"
           className="relative flex size-11 items-center justify-center rounded-[8px] border border-ink-900/10 bg-white text-ink-900 shadow-sm transition hover:border-coral-300"
           aria-label="Cart"
+          onClick={openCart}
         >
           <ShoppingBag size={20} aria-hidden="true" />
-          <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-[6px] bg-coral-700 text-[11px] font-bold text-white">
-            0
+          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-[6px] bg-coral-700 px-1 text-[11px] font-bold text-white">
+            {cartCountLabel}
           </span>
         </button>
 

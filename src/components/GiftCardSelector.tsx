@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Gift, ShoppingBag } from "lucide-react";
+import { useCart } from "@/components/CartProvider";
 import type { Product } from "@/lib/types";
 import { formatMoney } from "@/lib/utils";
 
@@ -12,12 +13,35 @@ type GiftCardSelectorProps = {
 const fallbackDenominations = [10, 25, 50, 100, 200, 250];
 
 export default function GiftCardSelector({ product }: GiftCardSelectorProps) {
+  const { addItem } = useCart();
   const denominations = useMemo(
     () => product?.variants.map((variant) => variant.price).filter(Boolean) ?? fallbackDenominations,
     [product]
   );
   const [selected, setSelected] = useState(denominations[1] ?? denominations[0]);
   const [added, setAdded] = useState(false);
+  const activeVariant =
+    product?.variants.find((variant) => variant.price === selected) ??
+    product?.variants[0];
+
+  function addGiftCardToCart() {
+    if (!product || !activeVariant) {
+      setAdded(true);
+      return;
+    }
+    addItem({
+      productId: product.id,
+      productHandle: product.handle,
+      variantId: activeVariant.id,
+      title: product.title,
+      variantTitle: activeVariant.title,
+      image: product.featuredImage,
+      price: activeVariant.price,
+      options: activeVariant.options,
+      sku: activeVariant.sku,
+    });
+    setAdded(true);
+  }
 
   return (
     <div className="rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft">
@@ -53,7 +77,7 @@ export default function GiftCardSelector({ product }: GiftCardSelectorProps) {
 
       <button
         type="button"
-        onClick={() => setAdded(true)}
+        onClick={addGiftCardToCart}
         className="focus-ring mt-6 inline-flex h-14 w-full items-center justify-center gap-2 rounded-[8px] bg-ink-900 px-6 text-sm font-black uppercase text-white transition hover:bg-ink-800"
       >
         <ShoppingBag size={18} aria-hidden="true" />

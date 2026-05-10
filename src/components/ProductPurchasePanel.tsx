@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Check, ShoppingBag } from "lucide-react";
+import { useCart } from "@/components/CartProvider";
 import type { Product, ProductVariant } from "@/lib/types";
 import { formatMoney } from "@/lib/utils";
 
@@ -18,14 +19,32 @@ function findVariant(product: Product, selected: Record<string, string>): Produc
 }
 
 export default function ProductPurchasePanel({ product }: ProductPurchasePanelProps) {
+  const { addItem } = useCart();
   const defaultOptions = Object.fromEntries(product.options.map((option) => [option.name, option.values[0] ?? ""]));
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>(defaultOptions);
   const [added, setAdded] = useState(false);
   const activeVariant = useMemo(() => findVariant(product, selectedOptions), [product, selectedOptions]);
+  const canAddToCart = Boolean(product.available && activeVariant?.available);
 
   function updateOption(name: string, value: string) {
     setSelectedOptions((current) => ({ ...current, [name]: value }));
     setAdded(false);
+  }
+
+  function addToCart() {
+    if (!activeVariant || !canAddToCart) return;
+    addItem({
+      productId: product.id,
+      productHandle: product.handle,
+      variantId: activeVariant.id,
+      title: product.title,
+      variantTitle: activeVariant.title,
+      image: product.featuredImage,
+      price: activeVariant.price,
+      options: activeVariant.options,
+      sku: activeVariant.sku,
+    });
+    setAdded(true);
   }
 
   return (
@@ -41,10 +60,10 @@ export default function ProductPurchasePanel({ product }: ProductPurchasePanelPr
         </div>
         <span
           className={`rounded-[6px] px-3 py-1 text-xs font-black uppercase ${
-            product.available ? "bg-sage-100 text-sage-900" : "bg-stone-100 text-stone-500"
+            canAddToCart ? "bg-sage-100 text-sage-900" : "bg-stone-100 text-stone-500"
           }`}
         >
-          {product.available ? "In stock" : "Unavailable"}
+          {canAddToCart ? "In stock" : "Unavailable"}
         </span>
       </div>
 
@@ -73,8 +92,8 @@ export default function ProductPurchasePanel({ product }: ProductPurchasePanelPr
 
       <button
         type="button"
-        disabled={!product.available}
-        onClick={() => setAdded(true)}
+        disabled={!canAddToCart}
+        onClick={addToCart}
         className="focus-ring mt-6 inline-flex h-14 w-full items-center justify-center gap-2 rounded-[8px] bg-coral-700 px-6 py-4 text-sm font-black uppercase text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-coral-800 disabled:cursor-not-allowed disabled:bg-stone-300"
       >
         {added ? <Check size={18} aria-hidden="true" /> : <ShoppingBag size={18} aria-hidden="true" />}
