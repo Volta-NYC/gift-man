@@ -43,7 +43,7 @@ export default function HeroSection({ products }: HeroSectionProps) {
               { icon: Truck, label: "Free shipping $150+" },
               { icon: Scissors, label: "Embroidery on-site" },
             ].map((item) => (
-              <div key={item.label} className="border-ink-900/12 py-4 pr-4 sm:border-r sm:last:border-r-0">
+              <div key={item.label} className="border-ink-900/12 py-4 px-4 sm:border-r sm:last:border-r-0">
                 <item.icon size={20} className="mb-3 text-coral-700" aria-hidden="true" />
                 <p className="text-sm font-black leading-tight text-ink-900">{item.label}</p>
               </div>
