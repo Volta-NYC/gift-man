@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { Search, SlidersHorizontal } from "lucide-react";
 import FilterSidebar from "@/components/FilterSidebar";
 import ProductGrid from "@/components/ProductGrid";
@@ -14,11 +13,15 @@ type ProductsBrowserProps = {
   products: Product[];
   collections: Collection[];
   initialCollection?: string;
+  initialQuery?: string;
 };
 
-export default function ProductsBrowser({ products, collections, initialCollection = "all" }: ProductsBrowserProps) {
-  const searchParams = useSearchParams();
-  const initialQuery = searchParams.get("q") ?? "";
+export default function ProductsBrowser({
+  products,
+  collections,
+  initialCollection = "all",
+  initialQuery = "",
+}: ProductsBrowserProps) {
   const maxPrice = Math.ceil(Math.max(...products.map((product) => product.price.max)));
   const [query, setQuery] = useState(initialQuery);
   const [selectedCollection, setSelectedCollection] = useState(initialCollection);

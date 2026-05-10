@@ -22,7 +22,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Gift Man home">
           <Image
-            src="/images/logo.svg"
+            src="/images/logo.webp"
             alt="Gift Man"
             width={210}
             height={62}

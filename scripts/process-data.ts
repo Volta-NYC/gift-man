@@ -135,6 +135,16 @@ function stripHtml(html?: string | null) {
     .trim();
 }
 
+function cleanBodyHtml(html?: string | null, fallback = "") {
+  const source = html || `<p>${fallback}</p>`;
+  return source
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
+    .replace(/<img[^>]*>/gi, "")
+    .replace(/\s(on[a-z]+)=["'][^"']*["']/gi, "")
+    .replace(/\sstyle=["'][^"']*["']/gi, "");
+}
+
 async function readScrape() {
   for (const candidate of SCRAPE_CANDIDATES) {
     try {
@@ -204,11 +214,11 @@ function productText(product: ShopifyProduct, markdown: MarkdownProduct) {
 }
 
 function isAdultTee(text: string) {
-  return /(adult|men|women|shirt|t shirt|tshirt|tee)/.test(text) && !/(kids|kid|youth|toddler|baby|onesie)/.test(text);
+  return /\b(adult|men|women|shirt|shirts|tee|tees|tshirt|tshirts|t shirt|t shirts)\b/.test(text) && !/(kids|kid|youth|toddler|baby|onesie)/.test(text);
 }
 
 function isKidTee(text: string) {
-  return /(kids|kid|youth|toddler|children|baby)/.test(text) && /(shirt|t shirt|tshirt|tee|onesie)/.test(text);
+  return /(kids|kid|youth|toddler|children|baby)/.test(text) && /\b(shirt|shirts|t shirt|t shirts|tshirt|tshirts|tee|tees|onesie|onesies)\b/.test(text);
 }
 
 function inferCollections(product: ShopifyProduct, markdown: MarkdownProduct, collectionNames: string[]) {
@@ -222,9 +232,9 @@ function inferCollections(product: ShopifyProduct, markdown: MarkdownProduct, co
   add("Baby", /(baby|onesie|toddler|infant|6months|12months|18months|sock monkey)/.test(text));
   add("Books", /(book|guide|novel|pocket guide|postcard booklet|children s book|preschoolers)/.test(text));
   add("Brooklyn Adult T-shirts", /brooklyn/.test(text) && isAdultTee(text));
-  add("Brooklyn Baseball Caps", /brooklyn/.test(text) && /(cap|caps|hat|hats|snapback|baseball cap)/.test(text));
+  add("Brooklyn Baseball Caps", /brooklyn/.test(text) && /\b(cap|caps|hat|hats|snapback|snapbacks|beanie|beanies)\b/.test(text));
   add("Brooklyn Bridge Souvenir Gifts", /brooklyn bridge/.test(text));
-  add("Brooklyn Signs", /brooklyn/.test(text) && /(sign|wall decor|plaque)/.test(text));
+  add("Brooklyn Signs", /brooklyn/.test(text) && /\b(sign|signs|plaque|plaques|wall decor)\b/.test(text));
   add("Brooklyn Souvenirs", /brooklyn/.test(text));
   add("Brooklyn T-shirts (Kids)", /brooklyn/.test(text) && isKidTee(text));
   add("Brooklyn Themed Adult T-Shirts", /brooklyn/.test(text) && isAdultTee(text));
@@ -319,7 +329,7 @@ async function main() {
         markdownProduct.description && markdownProduct.description !== "(No description provided on site.)"
           ? markdownProduct.description
         : stripHtml(shopifyProduct.body_html),
-      bodyHtml: shopifyProduct.body_html || `<p>${markdownProduct.description}</p>`,
+      bodyHtml: cleanBodyHtml(shopifyProduct.body_html, markdownProduct.description),
       price: {
         min,
         max,
