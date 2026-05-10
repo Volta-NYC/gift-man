@@ -39,7 +39,13 @@ export default function Header() {
 
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center rounded-[8px] focus-ring" aria-label="Gift Man home">
-          <img src="/images/logo.svg" alt="Gift Man" width={203} height={60} className="h-11 w-auto sm:h-12" />
+          <img
+            src="/files/logo.webp"
+            alt="Gift Man"
+            width={336}
+            height={336}
+            className="h-12 w-12 object-contain sm:h-14 sm:w-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 text-sm font-bold text-ink-900 lg:flex">

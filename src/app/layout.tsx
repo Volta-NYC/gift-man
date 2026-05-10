@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "Brooklyn souvenirs, NYC gifts, local apparel, mugs, baby gifts, and custom embroidery from a family-owned Park Slope shop.",
     url: "https://giftmangifts.com",
     siteName: "Gift Man",
-    images: [{ url: "/images/logo.svg", width: 420, height: 124, alt: "Gift Man" }],
+    images: [{ url: "/files/logo.webp", width: 336, height: 336, alt: "Gift Man" }],
     locale: "en_US",
     type: "website",
   },

@@ -14,6 +14,7 @@ import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { formatMoney, imageSrcSet } from "@/lib/utils";
 
 const CART_STORAGE_KEY = "giftman-cart-v1";
+const CART_ANIMATION_MS = 320;
 
 export type CartItemInput = {
   productId: number;
@@ -161,19 +162,37 @@ export function useCart() {
 
 function CartDrawer() {
   const { closeCart, clearCart, isOpen, itemCount, items, removeItem, subtotal, updateQuantity } = useCart();
+  const [shouldRender, setShouldRender] = useState(isOpen);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      return undefined;
+    }
+
+    const timeout = window.setTimeout(() => {
+      setShouldRender(false);
+    }, CART_ANIMATION_MS);
+
+    return () => window.clearTimeout(timeout);
+  }, [isOpen]);
+
+  if (!shouldRender) return null;
 
   return (
-    <div className="fixed inset-0 z-[90]">
+    <div className={`fixed inset-0 z-[90] ${isOpen ? "" : "pointer-events-none"}`} aria-hidden={!isOpen}>
       <button
         type="button"
         aria-label="Close cart"
-        className="absolute inset-0 bg-ink-900/45"
+        className={`absolute inset-0 bg-ink-900/45 backdrop-blur-[2px] transition-opacity duration-300 ease-out ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
         onClick={closeCart}
       />
       <aside
-        className="absolute right-0 top-0 flex h-full w-full max-w-[440px] flex-col border-l border-ink-900/10 bg-cream-50 shadow-lift"
+        className={`absolute right-0 top-0 flex h-full w-full max-w-[440px] flex-col border-l border-ink-900/10 bg-cream-50 shadow-lift transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="cart-title"
@@ -201,7 +220,10 @@ function CartDrawer() {
           <>
             <div className="flex-1 space-y-4 overflow-y-auto px-5 py-5">
               {items.map((item) => (
-                <div key={item.id} className="rounded-[8px] border border-ink-900/10 bg-white p-3 shadow-sm">
+                <div
+                  key={item.id}
+                  className="cart-line-item rounded-[8px] border border-ink-900/10 bg-white p-3 shadow-sm"
+                >
                   <div className="grid grid-cols-[82px_1fr] gap-3">
                     <Link
                       href={`/products/${item.productHandle}`}
