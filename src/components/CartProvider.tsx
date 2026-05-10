@@ -165,13 +165,8 @@ function CartDrawer() {
   const [shouldRender, setShouldRender] = useState(isOpen);
 
   useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true);
-      return undefined;
-    }
-
     const timeout = window.setTimeout(() => {
-      setShouldRender(false);
+      setShouldRender(isOpen);
     }, CART_ANIMATION_MS);
 
     return () => window.clearTimeout(timeout);
