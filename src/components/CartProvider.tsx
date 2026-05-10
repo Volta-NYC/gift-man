@@ -163,30 +163,36 @@ export function useCart() {
 function CartDrawer() {
   const { closeCart, clearCart, isOpen, itemCount, items, removeItem, subtotal, updateQuantity } = useCart();
   const [shouldRender, setShouldRender] = useState(isOpen);
+  const [isVisible, setIsVisible] = useState(isOpen);
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      setShouldRender(isOpen);
-    }, CART_ANIMATION_MS);
-
+    if (isOpen) {
+      setShouldRender(true);
+      const raf = window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => setIsVisible(true));
+      });
+      return () => window.cancelAnimationFrame(raf);
+    }
+    setIsVisible(false);
+    const timeout = window.setTimeout(() => setShouldRender(false), CART_ANIMATION_MS);
     return () => window.clearTimeout(timeout);
   }, [isOpen]);
 
   if (!shouldRender) return null;
 
   return (
-    <div className={`fixed inset-0 z-[90] ${isOpen ? "" : "pointer-events-none"}`} aria-hidden={!isOpen}>
+    <div className={`fixed inset-0 z-[90] ${isVisible ? "" : "pointer-events-none"}`} aria-hidden={!isVisible}>
       <button
         type="button"
         aria-label="Close cart"
         className={`absolute inset-0 bg-ink-900/45 backdrop-blur-[2px] transition-opacity duration-300 ease-out ${
-          isOpen ? "opacity-100" : "opacity-0"
+          isVisible ? "opacity-100" : "opacity-0"
         }`}
         onClick={closeCart}
       />
       <aside
         className={`absolute right-0 top-0 flex h-full w-full max-w-[440px] flex-col border-l border-ink-900/10 bg-cream-50 shadow-lift transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isVisible ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
