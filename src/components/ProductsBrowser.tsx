@@ -1,13 +1,26 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Search, SlidersHorizontal } from "lucide-react";
 import FilterSidebar from "@/components/FilterSidebar";
 import ProductGrid from "@/components/ProductGrid";
 import type { Collection, Product } from "@/lib/types";
-import { getSearchIndexText } from "@/lib/products";
 
 const PAGE_SIZE = 24;
+
+function getSearchIndexText(product: Product) {
+  return [
+    product.title,
+    product.description,
+    product.productType,
+    product.markdownType,
+    product.tags.join(" "),
+    product.collections.join(" "),
+  ]
+    .join(" ")
+    .toLowerCase();
+}
 
 type ProductsBrowserProps = {
   products: Product[];
@@ -22,8 +35,10 @@ export default function ProductsBrowser({
   initialCollection = "all",
   initialQuery = "",
 }: ProductsBrowserProps) {
+  const searchParams = useSearchParams();
+  const queryFromUrl = searchParams.get("q") ?? initialQuery;
   const maxPrice = Math.ceil(Math.max(...products.map((product) => product.price.max)));
-  const [query, setQuery] = useState(initialQuery);
+  const [query, setQuery] = useState(queryFromUrl);
   const [selectedCollection, setSelectedCollection] = useState(initialCollection);
   const [selectedMaxPrice, setSelectedMaxPrice] = useState(maxPrice);
   const [sort, setSort] = useState("newest");

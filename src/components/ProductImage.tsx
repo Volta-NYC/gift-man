@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { imageSrcSet } from "@/lib/utils";
 
 type ProductImageProps = {
   src: string;
@@ -20,13 +20,14 @@ export default function ProductImage({
 }: ProductImageProps) {
   return (
     <div className={cn("relative overflow-hidden bg-stone-100", className)}>
-      <Image
+      <img
         src={src}
         alt={alt}
-        fill
-        priority={priority}
+        srcSet={imageSrcSet(src)}
         sizes={sizes}
-        className={cn("object-cover transition duration-500", imageClassName)}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className={cn("absolute inset-0 h-full w-full object-cover transition duration-500", imageClassName)}
       />
     </div>
   );

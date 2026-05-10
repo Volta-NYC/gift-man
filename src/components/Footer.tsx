@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Mail, MapPin, Phone, Scissors, Truck } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Phone, Scissors, Truck } from "lucide-react";
 import { collections } from "@/lib/products";
 
 export default function Footer() {
@@ -74,7 +74,7 @@ export default function Footer() {
             rel="noreferrer"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-coral-200 hover:text-white"
           >
-            <Facebook size={16} aria-hidden="true" /> Facebook
+            <ExternalLink size={16} aria-hidden="true" /> Facebook
           </Link>
         </div>
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
@@ -21,14 +20,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-cream-50/92 shadow-sm backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Gift Man home">
-          <Image
-            src="/images/logo.webp"
-            alt="Gift Man"
-            width={210}
-            height={62}
-            priority
-            className="h-12 w-auto"
-          />
+          <img src="/images/logo.svg" alt="Gift Man" width={203} height={60} className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold text-stone-800 lg:flex">

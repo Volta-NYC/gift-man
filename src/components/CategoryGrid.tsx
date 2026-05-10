@@ -11,7 +11,7 @@ export default function CategoryGrid({ collections }: CategoryGridProps) {
   const visibleCollections = collections.filter((collection) => collection.count > 0).slice(0, 8);
 
   return (
-    <section className="bg-cream-100 py-16 sm:py-20">
+    <section className="bg-cream-100 py-12 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

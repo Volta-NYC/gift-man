@@ -141,6 +141,9 @@ function cleanBodyHtml(html?: string | null, fallback = "") {
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
     .replace(/<img[^>]*>/gi, "")
+    .replace(/<a\b[^>]*>/gi, "")
+    .replace(/<\/a>/gi, "")
+    .replace(/https?:\/\/[^\s<"]+/gi, "")
     .replace(/\s(on[a-z]+)=["'][^"']*["']/gi, "")
     .replace(/\sstyle=["'][^"']*["']/gi, "");
 }

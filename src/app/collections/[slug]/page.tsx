@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import ProductsBrowser from "@/components/ProductsBrowser";
 import ProductImage from "@/components/ProductImage";
 import { collections, getCollection, getCollectionProducts } from "@/lib/products";
@@ -53,11 +54,9 @@ export default function CollectionPage({ params }: CollectionPageProps) {
             sizes="(min-width: 1024px) 28vw, 100vw"
           />
         </div>
-        <ProductsBrowser
-          products={collectionProducts}
-          collections={collections}
-          initialCollection={collection.name}
-        />
+        <Suspense>
+          <ProductsBrowser products={collectionProducts} collections={collections} initialCollection={collection.name} />
+        </Suspense>
       </div>
     </section>
   );
