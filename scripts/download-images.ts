@@ -206,6 +206,7 @@ async function main() {
   await ensureDir(PRODUCT_IMAGE_DIR);
   await ensureDir(DATA_DIR);
   await ensureDir(path.join(PUBLIC_DIR, "images"));
+  await writeProductPlaceholder(path.join(PRODUCT_IMAGE_DIR, "placeholder.svg"), "Gift Man product image");
 
   console.log("Fetching Shopify product JSON...");
   const responses = await Promise.all(PRODUCT_URLS.map((url) => fetchJson<ShopifyResponse>(url)));

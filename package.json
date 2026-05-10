@@ -1,10 +1,13 @@
 {
-  "name": "volta-base-template",
+  "name": "giftman-website",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "download-images": "ts-node scripts/download-images.ts",
+    "process-data": "ts-node scripts/process-data.ts",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
     "lint": "next lint"
   },

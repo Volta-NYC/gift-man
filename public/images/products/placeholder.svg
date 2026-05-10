@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Gift Man product image">
+  <rect width="1200" height="900" fill="#fffaf4"/>
+  <rect x="36" y="36" width="1128" height="828" rx="28" fill="#ffffff" stroke="#161313" stroke-width="10"/>
+  <path d="M132 245h936" stroke="#d74735" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="392" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#161313">GIFT MAN</text>
+  <text x="600" y="486" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#d74735">BROOKLYN SINCE 1982</text>
+  <text x="600" y="590" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#5e5550">Gift Man product image</text>
+</svg>
