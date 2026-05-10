@@ -10,7 +10,13 @@ export default function Footer() {
       <div className="scroll-reveal reveal-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] lg:px-8">
         <div className="space-y-5">
           <Link href="/" className="inline-flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-[8px] bg-coral-700 font-black">GM</span>
+            <img
+              src="/files/logo.webp"
+              alt="Gift Man"
+              width={336}
+              height={336}
+              className="size-12 rounded-[8px] object-cover"
+            />
             <span>
               <span className="block font-display text-2xl font-semibold">Gift Man</span>
               <span className="text-sm font-semibold uppercase text-coral-200">Brooklyn since 1982</span>
@@ -90,7 +96,15 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-stone-400">
-        © {new Date().getFullYear()} Gift Man. Static catalog experience.
+        <span>© {new Date().getFullYear()} Gift Man.</span>{" "}
+        <Link
+          href="https://voltanyc.org/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-bold text-sage-100 transition hover:text-white"
+        >
+          Made by Volta
+        </Link>
       </div>
     </footer>
   );
