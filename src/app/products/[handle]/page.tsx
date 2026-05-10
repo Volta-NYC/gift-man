@@ -39,7 +39,7 @@ export default function ProductPage({ params }: ProductPageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.title,
-    image: product.images.map((image) => `https://giftmangifts.com${image}`),
+    image: product.images,
     description: product.description,
     sku: product.variants.find((variant) => variant.sku)?.sku,
     brand: {
@@ -59,7 +59,7 @@ export default function ProductPage({ params }: ProductPageProps) {
   return (
     <article className="bg-cream-50 py-8 sm:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm font-semibold text-stone-500">
           <Link href="/" className="hover:text-coral-700">
             Home
@@ -79,35 +79,35 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-start">
           <ProductGallery title={product.title} images={product.images} />
 
-          <div className="space-y-6">
+          <div className="space-y-6 lg:sticky lg:top-32">
             <div>
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.16em] text-coral-700">
+              <p className="mb-3 text-sm font-black uppercase text-coral-700">
                 {product.productType || product.collections[0] || "Gift Man"}
               </p>
-              <h1 className="font-display text-4xl font-semibold leading-tight tracking-[-0.02em] text-stone-950 sm:text-5xl">
+              <h1 className="font-display text-4xl font-semibold leading-tight text-ink-900 sm:text-5xl">
                 {product.title}
               </h1>
-              <p className="mt-4 text-lg leading-8 text-stone-600">{product.description}</p>
+              <p className="mt-4 text-lg leading-8 text-stone-700">{product.description}</p>
             </div>
 
             <ProductPurchasePanel product={product} />
 
-            <section className="rounded-[8px] border border-stone-200 bg-white p-5 shadow-sm">
-              <h2 className="text-xl font-black text-stone-950">Product Details</h2>
+            <section className="rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft">
+              <h2 className="text-xl font-black text-ink-900">Product Details</h2>
               <div className="product-richtext mt-4" dangerouslySetInnerHTML={{ __html: product.bodyHtml }} />
-              <dl className="mt-6 grid gap-3 border-t border-stone-200 pt-5 text-sm">
+              <dl className="mt-6 grid gap-3 border-t border-ink-900/10 pt-5 text-sm">
                 <div className="flex justify-between gap-4">
                   <dt className="font-bold text-stone-500">Vendor</dt>
-                  <dd className="font-semibold text-stone-950">{product.vendor || "Gift-Man"}</dd>
+                  <dd className="font-semibold text-ink-900">{product.vendor || "Gift-Man"}</dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt className="font-bold text-stone-500">Availability</dt>
-                  <dd className="font-semibold text-stone-950">{product.available ? "In stock" : "Unavailable"}</dd>
+                  <dd className="font-semibold text-ink-900">{product.available ? "In stock" : "Unavailable"}</dd>
                 </div>
                 {product.options.length ? (
                   <div className="flex justify-between gap-4">
                     <dt className="font-bold text-stone-500">Options</dt>
-                    <dd className="text-right font-semibold text-stone-950">
+                    <dd className="text-right font-semibold text-ink-900">
                       {product.options.map((option) => option.name).join(", ")}
                     </dd>
                   </div>
@@ -117,10 +117,10 @@ export default function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
 
-        <section className="mt-16 border-t border-stone-200 pt-10">
+        <section className="mt-16 border-t border-ink-900/10 pt-10">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
-              <h2 className="font-display text-4xl font-semibold tracking-[-0.02em] text-stone-950">
+              <h2 className="font-display text-4xl font-semibold text-ink-900">
                 You May Also Like
               </h2>
               <p className="mt-2 text-stone-600">Related picks from the same Gift Man collection.</p>

@@ -20,13 +20,13 @@ export default function HomePage() {
       <CategoryGrid collections={collections} />
       <FeaturedCarousel products={featuredProducts} />
 
-      <section className="bg-stone-950 py-16 text-white sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+      <section className="bg-ink-900 py-16 text-white sm:py-20">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <div className="mb-6 flex size-14 items-center justify-center rounded-full bg-coral-700 text-white">
+            <div className="mb-6 flex size-14 items-center justify-center rounded-[8px] bg-coral-700 text-white shadow-soft">
               <Scissors size={28} aria-hidden="true" />
             </div>
-            <h2 className="font-display text-4xl font-semibold leading-tight tracking-[-0.02em] sm:text-5xl">
+            <h2 className="font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Custom embroidery, stitched right in Park Slope.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-stone-300">
@@ -35,7 +35,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-black uppercase tracking-wide text-stone-950 transition hover:bg-coral-100"
+              className="focus-ring mt-7 inline-flex items-center gap-2 rounded-[8px] bg-white px-6 py-3 text-sm font-black uppercase text-ink-900 transition hover:-translate-y-0.5 hover:bg-coral-100"
             >
               Start a custom order <ArrowRight size={17} aria-hidden="true" />
             </Link>
@@ -46,7 +46,8 @@ export default function HomePage() {
                 key={product.handle}
                 src={product.featuredImage}
                 alt={product.title}
-                className={`aspect-[4/5] rounded-[8px] shadow-2xl ${index % 2 ? "translate-y-8" : ""}`}
+                className={`aspect-[4/5] rounded-[8px] border border-white/10 bg-cream-50 shadow-2xl ${index % 2 ? "translate-y-8" : ""}`}
+                imageClassName="object-contain p-5"
                 sizes="(min-width: 1024px) 25vw, 50vw"
               />
             ))}
@@ -54,31 +55,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
+      <section className="bg-skywash-100 py-16 sm:py-20">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="grid grid-cols-2 gap-4">
             {photoGrid.slice(4, 8).map((product, index) => (
               <ProductImage
                 key={product.handle}
                 src={product.featuredImage}
                 alt={product.title}
-                className={`aspect-square rounded-[8px] shadow-soft ${index === 1 ? "mt-10" : ""}`}
+                className={`aspect-square rounded-[8px] border border-ink-900/10 bg-white shadow-soft ${index === 1 ? "mt-10" : ""}`}
+                imageClassName="object-contain p-5"
                 sizes="(min-width: 1024px) 24vw, 50vw"
               />
             ))}
           </div>
           <div>
-            <h2 className="font-display text-4xl font-semibold tracking-[-0.02em] text-stone-950 sm:text-5xl">
+            <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
               A Brooklyn shop with a long memory.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-stone-600">
+            <p className="mt-5 text-lg leading-8 text-stone-700">
               Founded in 1982 and owned by Jack Russo, Gift Man started as a small shop selling chairs to restaurants
               before growing into a beloved Park Slope destination for gifts, souvenirs, and custom work.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {["Est. 1982", "Park Slope", "Family Owned"].map((item) => (
-                <div key={item} className="rounded-[8px] border border-stone-200 bg-cream-50 p-4">
-                  <p className="text-sm font-black uppercase tracking-[0.16em] text-coral-700">{item}</p>
+                <div key={item} className="rounded-[8px] border border-ink-900/10 bg-white/85 p-4 shadow-sm">
+                  <p className="text-sm font-black uppercase text-coral-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -89,13 +91,13 @@ export default function HomePage() {
       <Newsletter />
 
       <section className="bg-cream-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="section-shell">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="font-display text-4xl font-semibold tracking-[-0.02em] text-stone-950 sm:text-5xl">
+              <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
                 From the shelves
               </h2>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-stone-600">
+              <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
                 An Instagram-style look at product photos pulled from the real catalog.
               </p>
             </div>
@@ -109,8 +111,8 @@ export default function HomePage() {
                 <ProductImage
                   src={product.featuredImage}
                   alt={product.title}
-                  className={`aspect-square rounded-[8px] shadow-sm ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
-                  imageClassName="group-hover:scale-105"
+                  className={`aspect-square rounded-[8px] border border-ink-900/10 bg-white shadow-sm ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
+                  imageClassName="object-contain p-4 group-hover:scale-[1.04]"
                   sizes={index === 0 ? "(min-width: 768px) 50vw, 50vw" : "(min-width: 768px) 25vw, 50vw"}
                 />
               </Link>

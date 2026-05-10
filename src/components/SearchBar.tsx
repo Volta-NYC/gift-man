@@ -30,7 +30,7 @@ export default function SearchBar({ compact = false }: SearchBarProps) {
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Search gifts, tees, mugs..."
         aria-label="Search products"
-        className="h-11 w-full rounded-full border border-stone-200 bg-white pl-10 pr-4 text-sm font-medium text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-coral-600 focus:ring-4 focus:ring-coral-100"
+        className="focus-ring h-11 w-full rounded-[8px] border border-ink-900/10 bg-white/85 pl-10 pr-4 text-sm font-semibold text-ink-900 shadow-sm transition placeholder:text-stone-400"
       />
     </form>
   );

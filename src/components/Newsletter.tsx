@@ -19,9 +19,9 @@ export default function Newsletter() {
 
   return (
     <section className="bg-coral-700 py-14 text-white">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
+      <div className="section-shell grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <div>
-          <h2 className="font-display text-4xl font-semibold tracking-[-0.02em] sm:text-5xl">
+          <h2 className="font-display text-4xl font-semibold sm:text-5xl">
             New arrivals, local finds, and embroidery notes.
           </h2>
           <p className="mt-3 max-w-2xl text-base leading-7 text-coral-50">
@@ -38,11 +38,11 @@ export default function Newsletter() {
             onChange={(event) => setEmail(event.target.value)}
             type="email"
             placeholder="Email address"
-            className="h-12 min-w-0 flex-1 rounded-[6px] px-4 text-sm font-medium text-stone-950 outline-none"
+            className="h-12 min-w-0 flex-1 rounded-[6px] px-4 text-sm font-semibold text-ink-900 outline-none"
           />
           <button
             type="submit"
-            className="mt-2 inline-flex h-12 w-full items-center justify-center gap-2 rounded-[6px] bg-stone-950 px-5 text-sm font-bold text-white transition hover:bg-stone-800 sm:mt-0 sm:w-auto"
+            className="mt-2 inline-flex h-12 w-full items-center justify-center gap-2 rounded-[6px] bg-ink-900 px-5 text-sm font-black text-white transition hover:bg-ink-800 sm:mt-0 sm:w-auto"
           >
             <MailCheck size={17} aria-hidden="true" /> Sign up
           </button>

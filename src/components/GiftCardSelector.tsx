@@ -20,14 +20,14 @@ export default function GiftCardSelector({ product }: GiftCardSelectorProps) {
   const [added, setAdded] = useState(false);
 
   return (
-    <div className="rounded-[8px] border border-stone-200 bg-white p-5 shadow-sm">
+    <div className="rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft">
       <div className="flex items-center gap-3">
-        <div className="flex size-12 items-center justify-center rounded-full bg-coral-100 text-coral-700">
+        <div className="flex size-12 items-center justify-center rounded-[8px] bg-coral-100 text-coral-700">
           <Gift size={24} aria-hidden="true" />
         </div>
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.16em] text-stone-500">Gift Man Gift Card</p>
-          <p className="text-3xl font-black text-stone-950">{formatMoney(selected)}</p>
+          <p className="text-sm font-black uppercase text-stone-500">Gift Man Gift Card</p>
+          <p className="text-3xl font-black text-ink-900">{formatMoney(selected)}</p>
         </div>
       </div>
 
@@ -40,10 +40,10 @@ export default function GiftCardSelector({ product }: GiftCardSelectorProps) {
               setSelected(value);
               setAdded(false);
             }}
-            className={`rounded-[8px] border px-4 py-4 text-lg font-black transition ${
+            className={`focus-ring rounded-[8px] border px-4 py-4 text-lg font-black transition ${
               selected === value
                 ? "border-coral-700 bg-coral-700 text-white shadow-lg"
-                : "border-stone-200 bg-cream-50 text-stone-950 hover:border-coral-300"
+                : "border-ink-900/10 bg-cream-50 text-ink-900 hover:border-coral-300"
             }`}
           >
             {formatMoney(value)}
@@ -54,7 +54,7 @@ export default function GiftCardSelector({ product }: GiftCardSelectorProps) {
       <button
         type="button"
         onClick={() => setAdded(true)}
-        className="mt-6 inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-stone-950 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-stone-800"
+        className="focus-ring mt-6 inline-flex h-14 w-full items-center justify-center gap-2 rounded-[8px] bg-ink-900 px-6 text-sm font-black uppercase text-white transition hover:bg-ink-800"
       >
         <ShoppingBag size={18} aria-hidden="true" />
         {added ? "Added" : "Add Gift Card"}

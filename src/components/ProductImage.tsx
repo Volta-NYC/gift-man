@@ -19,7 +19,7 @@ export default function ProductImage({
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
 }: ProductImageProps) {
   return (
-    <div className={cn("relative overflow-hidden bg-stone-100", className)}>
+    <div className={cn("relative overflow-hidden bg-cream-100", className)}>
       <img
         src={src}
         alt={alt}

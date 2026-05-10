@@ -51,7 +51,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col bg-cream-50 text-stone-950 antialiased">
+      <body className="flex min-h-screen flex-col bg-cream-50 text-ink-900 antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

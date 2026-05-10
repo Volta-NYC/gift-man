@@ -23,17 +23,17 @@ export default function FilterSidebar({
   onSortChange,
 }: FilterSidebarProps) {
   return (
-    <aside className="rounded-[8px] border border-stone-200 bg-white p-4 shadow-sm lg:sticky lg:top-28">
+    <aside className="rounded-[8px] border border-ink-900/10 bg-white/92 p-4 shadow-soft lg:sticky lg:top-32">
       <div className="space-y-6">
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-stone-500" htmlFor="category">
+          <label className="mb-2 block text-xs font-black uppercase text-stone-500" htmlFor="category">
             Category
           </label>
           <select
             id="category"
             value={selectedCollection}
             onChange={(event) => onCollectionChange(event.target.value)}
-            className="h-11 w-full rounded-[8px] border border-stone-200 bg-white px-3 text-sm font-semibold text-stone-950 outline-none focus:border-coral-600 focus:ring-4 focus:ring-coral-100"
+            className="focus-ring h-11 w-full rounded-[8px] border border-ink-900/10 bg-cream-50 px-3 text-sm font-semibold text-ink-900"
           >
             <option value="all">All categories</option>
             {collections
@@ -48,10 +48,10 @@ export default function FilterSidebar({
 
         <div>
           <div className="mb-2 flex items-center justify-between">
-            <label className="text-xs font-black uppercase tracking-[0.16em] text-stone-500" htmlFor="price">
+            <label className="text-xs font-black uppercase text-stone-500" htmlFor="price">
               Price
             </label>
-            <span className="text-sm font-bold text-stone-950">Up to {formatMoney(selectedMaxPrice)}</span>
+            <span className="text-sm font-black text-ink-900">Up to {formatMoney(selectedMaxPrice)}</span>
           </div>
           <input
             id="price"
@@ -65,14 +65,14 @@ export default function FilterSidebar({
         </div>
 
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-stone-500" htmlFor="sort">
+          <label className="mb-2 block text-xs font-black uppercase text-stone-500" htmlFor="sort">
             Sort
           </label>
           <select
             id="sort"
             value={sort}
             onChange={(event) => onSortChange(event.target.value)}
-            className="h-11 w-full rounded-[8px] border border-stone-200 bg-white px-3 text-sm font-semibold text-stone-950 outline-none focus:border-coral-600 focus:ring-4 focus:ring-coral-100"
+            className="focus-ring h-11 w-full rounded-[8px] border border-ink-900/10 bg-cream-50 px-3 text-sm font-semibold text-ink-900"
           >
             <option value="newest">Newest</option>
             <option value="price-asc">Price low-high</option>

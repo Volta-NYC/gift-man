@@ -17,14 +17,14 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-cream-50 py-16 sm:py-20">
+      <div className="section-shell">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <h2 className="font-display text-4xl font-semibold tracking-[-0.02em] text-stone-950 sm:text-5xl">
+            <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
               Neighborhood Favorites
             </h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-stone-600">
+            <p className="mt-3 max-w-2xl text-base leading-7 text-stone-700">
               A quick shelf of visually strong staples from the catalog.
             </p>
           </div>
@@ -33,7 +33,7 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
               type="button"
               onClick={() => scrollBy(-1)}
               aria-label="Scroll left"
-              className="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-950 shadow-sm transition hover:border-coral-300"
+              className="focus-ring flex size-11 items-center justify-center rounded-[8px] border border-ink-900/10 bg-white text-ink-900 shadow-sm transition hover:border-coral-300"
             >
               <ChevronLeft size={20} aria-hidden="true" />
             </button>
@@ -41,7 +41,7 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
               type="button"
               onClick={() => scrollBy(1)}
               aria-label="Scroll right"
-              className="flex size-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-950 shadow-sm transition hover:border-coral-300"
+              className="focus-ring flex size-11 items-center justify-center rounded-[8px] border border-ink-900/10 bg-white text-ink-900 shadow-sm transition hover:border-coral-300"
             >
               <ChevronRight size={20} aria-hidden="true" />
             </button>
