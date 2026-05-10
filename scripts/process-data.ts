@@ -122,8 +122,8 @@ function normalize(value: string) {
     .trim();
 }
 
-function stripHtml(html: string) {
-  return html
+function stripHtml(html?: string | null) {
+  return (html ?? "")
     .replace(/<br\s*\/?>/gi, " ")
     .replace(/<\/p>/gi, " ")
     .replace(/<[^>]+>/g, "")
@@ -318,7 +318,7 @@ async function main() {
       description:
         markdownProduct.description && markdownProduct.description !== "(No description provided on site.)"
           ? markdownProduct.description
-          : stripHtml(shopifyProduct.body_html),
+        : stripHtml(shopifyProduct.body_html),
       bodyHtml: shopifyProduct.body_html || `<p>${markdownProduct.description}</p>`,
       price: {
         min,
