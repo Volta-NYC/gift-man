@@ -85,7 +85,7 @@ export default function ProductsBrowser({
       />
 
       <div className="min-w-0">
-        <div className="mb-6 rounded-[8px] border border-ink-900/10 bg-white/92 p-3 shadow-soft">
+        <div className="scroll-reveal scroll-soft mb-6 rounded-[8px] border border-ink-900/10 bg-white/92 p-3 shadow-soft">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="relative flex-1">
               <Search
@@ -116,7 +116,7 @@ export default function ProductsBrowser({
           </div>
         )}
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-ink-900/10 pt-6 sm:flex-row">
+        <div className="scroll-reveal scroll-soft mt-8 flex flex-col items-center justify-between gap-4 border-t border-ink-900/10 pt-6 sm:flex-row">
           <p className="text-sm font-bold text-stone-600">
             Page {safePage} of {pageCount}
           </p>

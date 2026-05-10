@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <div className="bg-cream-50">
       <section className="section-shell grid gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-        <div>
+        <div className="scroll-reveal scroll-left">
           <p className="mb-3 text-sm font-black uppercase text-coral-700">Est. 1982</p>
           <h1 className="font-display text-5xl font-semibold leading-tight text-ink-900 sm:text-7xl">
             A Park Slope gift shop with a working-shop soul.
@@ -42,7 +42,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="scroll-reveal reveal-grid grid grid-cols-2 gap-4" data-delay="1">
           {primary ? (
             <ProductImage
               src={primary.featuredImage}
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-white py-16 sm:py-20">
-        <div className="section-shell grid gap-8 lg:grid-cols-3">
+        <div className="section-shell scroll-reveal reveal-grid grid gap-8 lg:grid-cols-3">
           <div className="rounded-[8px] border border-ink-900/10 bg-cream-50 p-6 shadow-sm">
             <Store size={30} className="text-coral-700" aria-hidden="true" />
             <h2 className="mt-5 text-2xl font-black text-ink-900">Neighborhood Retail</h2>
@@ -96,7 +96,7 @@ export default function AboutPage() {
       </section>
 
       <section className="section-shell grid gap-8 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
+        <div className="scroll-reveal scroll-left">
           <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
             Find Gift Man on 5th Avenue.
           </h2>
@@ -105,7 +105,9 @@ export default function AboutPage() {
             blocks, and steady weekend foot traffic.
           </p>
         </div>
-        <StoreMap />
+        <div className="scroll-reveal scroll-right" data-delay="1">
+          <StoreMap />
+        </div>
       </section>
     </div>
   );

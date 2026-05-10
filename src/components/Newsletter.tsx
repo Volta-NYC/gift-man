@@ -20,7 +20,7 @@ export default function Newsletter() {
   return (
     <section className="bg-coral-700 py-14 text-white">
       <div className="section-shell grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-        <div>
+        <div className="scroll-reveal scroll-left">
           <h2 className="font-display text-4xl font-semibold sm:text-5xl">
             New arrivals, local finds, and embroidery notes.
           </h2>
@@ -28,7 +28,7 @@ export default function Newsletter() {
             Hear about seasonal Brooklyn goods, custom embroidery ideas, and fresh arrivals from the 5th Avenue shop.
           </p>
         </div>
-        <form onSubmit={onSubmit} className="rounded-[8px] bg-white p-2 shadow-2xl sm:flex">
+        <form onSubmit={onSubmit} className="scroll-reveal scroll-right rounded-[8px] bg-white p-2 shadow-2xl sm:flex" data-delay="1">
           <label className="sr-only" htmlFor="newsletter-email">
             Email address
           </label>

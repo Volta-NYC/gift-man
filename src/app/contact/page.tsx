@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <div className="bg-cream-50">
       <section className="section-shell py-12">
-        <div className="mb-10 max-w-3xl">
+        <div className="scroll-reveal scroll-soft mb-10 max-w-3xl">
           <h1 className="font-display text-5xl font-semibold text-ink-900 sm:text-7xl">
             Contact Gift Man
           </h1>
@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-5">
+          <div className="scroll-reveal reveal-grid space-y-5">
             <div className="rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft">
               <h2 className="text-2xl font-black text-ink-900">Store Details</h2>
               <div className="mt-5 space-y-4 text-stone-700">
@@ -64,12 +64,16 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <ContactForm />
+          <div className="scroll-reveal scroll-right" data-delay="1">
+            <ContactForm />
+          </div>
         </div>
       </section>
 
       <section className="section-shell pb-16 sm:pb-20">
-        <StoreMap />
+        <div className="scroll-reveal scroll-rise">
+          <StoreMap />
+        </div>
       </section>
     </div>
   );

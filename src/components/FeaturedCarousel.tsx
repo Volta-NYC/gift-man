@@ -19,7 +19,7 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
   return (
     <section className="bg-cream-50 py-16 sm:py-20">
       <div className="section-shell">
-        <div className="mb-8 flex items-end justify-between gap-4">
+        <div className="scroll-reveal scroll-soft mb-8 flex items-end justify-between gap-4">
           <div>
             <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
               Neighborhood Favorites
@@ -50,7 +50,7 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
 
         <div
           ref={scroller}
-          className="flex snap-x gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="scroll-reveal reveal-grid flex snap-x gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {products.map((product, index) => (
             <div key={product.handle} className="w-[78vw] shrink-0 snap-start sm:w-[320px]">

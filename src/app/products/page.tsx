@@ -12,7 +12,7 @@ export default function ProductsPage() {
   return (
     <section className="bg-cream-50 py-10 sm:py-14">
       <div className="section-shell">
-        <div className="mb-8 grid gap-6 border-b border-ink-900/10 pb-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+        <div className="scroll-reveal scroll-soft mb-8 grid gap-6 border-b border-ink-900/10 pb-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
           <div className="max-w-3xl">
             <h1 className="font-display text-5xl font-semibold text-ink-900 sm:text-6xl">
               All Products

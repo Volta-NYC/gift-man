@@ -13,8 +13,8 @@ export default function HeroSection({ products }: HeroSectionProps) {
   return (
     <section className="relative isolate overflow-hidden bg-cream-50">
       <div className="absolute inset-x-0 top-10 -z-10 hidden h-px bg-ink-900/10 lg:block" />
-      <div className="section-shell grid min-h-[calc(100svh-108px)] items-center gap-10 py-12 sm:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:py-20">
-        <div className="max-w-2xl">
+      <div className="section-shell grid min-h-[calc(82svh-108px)] items-center gap-10 py-10 sm:py-12 lg:grid-cols-[0.92fr_1.08fr] lg:py-14">
+        <div className="scroll-reveal scroll-soft max-w-2xl">
           <h1 className="font-display text-6xl font-semibold leading-[0.92] text-ink-900 sm:text-8xl lg:text-9xl">
             Gift Man
           </h1>
@@ -36,7 +36,7 @@ export default function HeroSection({ products }: HeroSectionProps) {
               Our story
             </Link>
           </div>
-          <div className="mt-10 grid max-w-2xl grid-cols-2 border-y border-ink-900/12 sm:grid-cols-4">
+          <div className="scroll-reveal reveal-grid mt-10 grid max-w-2xl grid-cols-2 border-y border-ink-900/12 sm:grid-cols-4" data-delay="2">
             {[
               { icon: Store, label: "Est. 1982" },
               { icon: ShieldCheck, label: "Family owned" },
@@ -51,8 +51,8 @@ export default function HeroSection({ products }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="relative min-h-[440px] sm:min-h-[560px]">
-          <div className="absolute left-0 top-6 h-[78%] w-[72%] rounded-[8px] border border-ink-900/12 bg-white p-3 shadow-lift">
+        <div className="scroll-reveal scroll-right relative min-h-[420px] sm:min-h-[500px]" data-delay="1">
+          <div className="scroll-depth absolute left-0 top-6 h-[78%] w-[72%] rounded-[8px] border border-ink-900/12 bg-white p-3 shadow-lift">
             {primary ? (
               <ProductImage
                 src={primary.featuredImage}

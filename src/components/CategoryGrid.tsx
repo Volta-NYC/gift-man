@@ -13,7 +13,7 @@ export default function CategoryGrid({ collections }: CategoryGridProps) {
   return (
     <section className="bg-cream-100 py-14 sm:py-20">
       <div className="section-shell">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="scroll-reveal scroll-soft mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
               Shop by Category
@@ -28,7 +28,7 @@ export default function CategoryGrid({ collections }: CategoryGridProps) {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="scroll-reveal reveal-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {visibleCollections.map((collection, index) => (
             <Link
               key={collection.slug}

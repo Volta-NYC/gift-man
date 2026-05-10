@@ -8,7 +8,7 @@ type ProductGridProps = {
 
 export default function ProductGrid({ products, eagerCount = 4 }: ProductGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="scroll-reveal reveal-grid grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
       {products.map((product, index) => (
         <ProductCard key={product.handle} product={product} eager={index < eagerCount} />
       ))}

@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <section className="bg-ink-900 py-16 text-white sm:py-20">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
+          <div className="scroll-reveal scroll-left">
             <div className="mb-6 flex size-14 items-center justify-center rounded-[8px] bg-coral-700 text-white shadow-soft">
               <Scissors size={28} aria-hidden="true" />
             </div>
@@ -40,7 +40,7 @@ export default function HomePage() {
               Start a custom order <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="scroll-reveal reveal-grid grid grid-cols-2 gap-4" data-delay="1">
             {featuredProducts.slice(0, 4).map((product, index) => (
               <ProductImage
                 key={product.handle}
@@ -57,7 +57,7 @@ export default function HomePage() {
 
       <section className="bg-skywash-100 py-16 sm:py-20">
         <div className="section-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="scroll-reveal reveal-grid grid grid-cols-2 gap-4">
             {photoGrid.slice(4, 8).map((product, index) => (
               <ProductImage
                 key={product.handle}
@@ -69,7 +69,7 @@ export default function HomePage() {
               />
             ))}
           </div>
-          <div>
+          <div className="scroll-reveal scroll-right" data-delay="1">
             <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
               A Brooklyn shop with a long memory.
             </h2>
@@ -77,7 +77,7 @@ export default function HomePage() {
               Founded in 1982 and owned by Jack Russo, Gift Man started as a small shop selling chairs to restaurants
               before growing into a beloved Park Slope destination for gifts, souvenirs, and custom work.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="scroll-reveal reveal-grid mt-8 grid gap-3 sm:grid-cols-3" data-delay="2">
               {["Est. 1982", "Park Slope", "Family Owned"].map((item) => (
                 <div key={item} className="rounded-[8px] border border-ink-900/10 bg-white/85 p-4 shadow-sm">
                   <p className="text-sm font-black uppercase text-coral-700">{item}</p>
@@ -92,7 +92,7 @@ export default function HomePage() {
 
       <section className="bg-cream-50 py-16 sm:py-20">
         <div className="section-shell">
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="scroll-reveal scroll-soft mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="font-display text-4xl font-semibold text-ink-900 sm:text-5xl">
                 From the shelves
@@ -105,7 +105,7 @@ export default function HomePage() {
               Browse all 316 <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <div className="scroll-reveal reveal-grid grid grid-cols-2 gap-3 md:grid-cols-4">
             {photoGrid.map((product, index) => (
               <Link key={product.handle} href={`/products/${product.handle}`} className="group">
                 <ProductImage

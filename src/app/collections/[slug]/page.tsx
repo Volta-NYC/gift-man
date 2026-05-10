@@ -37,7 +37,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
   return (
     <section className="bg-cream-50 py-10 sm:py-14">
       <div className="section-shell">
-        <div className="mb-8 grid gap-8 overflow-hidden rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft lg:grid-cols-[0.72fr_0.28fr] lg:items-center">
+        <div className="scroll-reveal scroll-soft mb-8 grid gap-8 overflow-hidden rounded-[8px] border border-ink-900/10 bg-white p-5 shadow-soft lg:grid-cols-[0.72fr_0.28fr] lg:items-center">
           <div className="max-w-3xl">
             <p className="mb-3 text-sm font-black uppercase text-coral-700">Collection</p>
             <h1 className="font-display text-5xl font-semibold text-ink-900 sm:text-6xl">

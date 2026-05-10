@@ -77,9 +77,11 @@ export default function ProductPage({ params }: ProductPageProps) {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-start">
-          <ProductGallery title={product.title} images={product.images} />
+          <div className="scroll-reveal scroll-left">
+            <ProductGallery title={product.title} images={product.images} />
+          </div>
 
-          <div className="space-y-6 lg:sticky lg:top-32">
+          <div className="scroll-reveal scroll-right space-y-6 lg:sticky lg:top-32" data-delay="1">
             <div>
               <p className="mb-3 text-sm font-black uppercase text-coral-700">
                 {product.productType || product.collections[0] || "Gift Man"}
@@ -117,7 +119,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
 
-        <section className="mt-16 border-t border-ink-900/10 pt-10">
+        <section className="scroll-reveal scroll-rise mt-16 border-t border-ink-900/10 pt-10">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <h2 className="font-display text-4xl font-semibold text-ink-900">
