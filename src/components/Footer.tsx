@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-ink-900/10 bg-ink-900 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] lg:px-8">
+      <div className="scroll-reveal reveal-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr] lg:px-8">
         <div className="space-y-5">
           <Link href="/" className="inline-flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-[8px] bg-coral-700 font-black">GM</span>

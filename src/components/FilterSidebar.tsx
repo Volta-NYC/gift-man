@@ -23,7 +23,7 @@ export default function FilterSidebar({
   onSortChange,
 }: FilterSidebarProps) {
   return (
-    <aside className="rounded-[8px] border border-ink-900/10 bg-white/92 p-4 shadow-soft lg:sticky lg:top-32">
+    <aside className="scroll-reveal scroll-left rounded-[8px] border border-ink-900/10 bg-white/92 p-4 shadow-soft lg:sticky lg:top-32">
       <div className="space-y-6">
         <div>
           <label className="mb-2 block text-xs font-black uppercase text-stone-500" htmlFor="category">

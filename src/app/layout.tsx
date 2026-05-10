@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/CartProvider";
+import ScrollEffects from "@/components/ScrollEffects";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://giftmangifts.com"),
@@ -58,6 +59,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <CartProvider>
+          <ScrollEffects />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
